@@ -132,7 +132,7 @@ RAGwithKendraLLMEndpointStack
 
 **Once all CDK stacks have been successfully created, proceed with the remaining steps of the [overall workflow](../README.md#overall-workflow).**
 
-> :info: To add additional dependencies, for example other CDK libraries, just add
+> :information_source: To add additional dependencies, for example other CDK libraries, just add
 them to your `setup.py` file and rerun the `pip install -r requirements.txt`
 command.
 
