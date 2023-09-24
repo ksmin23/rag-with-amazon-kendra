@@ -16,8 +16,8 @@ The overall architecture is like this:
 ### Overall Workflow
 
 1. Deploy the cdk stacks (For more information, see [here](./cdk_stacks/README.md)).
-  - An Amazon Kendra for knowledge base.
-  - A SageMaker Endpoint for text generation.
+   - An Amazon Kendra for knowledge base.
+   - A SageMaker Endpoint for text generation.
 2. Open SageMaker Studio and then open a new terminal.
 3. Run the following commands on the terminal to clone the code repository for this project:
    ```
