@@ -32,21 +32,6 @@ class SageMakerStudioStack(Stack):
       ]
     }))
 
-    sagemaker_custom_access_policy_doc = aws_iam.PolicyDocument()
-    sagemaker_custom_access_policy_doc.add_statements(aws_iam.PolicyStatement(**{
-      "effect": aws_iam.Effect.ALLOW,
-      "resources": [f"arn:aws:es:{cdk.Aws.REGION}:{cdk.Aws.ACCOUNT_ID}:domain/*"],
-      "actions": ["es:ESHttp*"],
-      "sid": "ReadFromOpenSearch"
-    }))
-
-    sagemaker_custom_access_policy_doc.add_statements(aws_iam.PolicyStatement(**{
-      "effect": aws_iam.Effect.ALLOW,
-      "resources": [f"arn:aws:secretsmanager:{cdk.Aws.REGION}:{cdk.Aws.ACCOUNT_ID}:secret:*"],
-      "actions": ["secretsmanager:GetSecretValue"],
-      "sid": "ReadSecretFromSecretsManager"
-    }))
-
     sagemaker_docker_build_policy_doc = aws_iam.PolicyDocument()
     sagemaker_docker_build_policy_doc.add_statements(aws_iam.PolicyStatement(**{
       "effect": aws_iam.Effect.ALLOW,
@@ -160,7 +145,6 @@ class SageMakerStudioStack(Stack):
       path='/',
       inline_policies={
         'sagemaker-execution-policy': sagemaker_execution_policy_doc,
-        'sagemaker-custom-access-policy': sagemaker_custom_access_policy_doc,
         'sagemaker-docker-build-policy': sagemaker_docker_build_policy_doc,
         'kendra-retrive-policy': kendra_retrive_policy_doc
       },
