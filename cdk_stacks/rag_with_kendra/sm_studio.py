@@ -145,6 +145,15 @@ class SageMakerStudioStack(Stack):
       "actions": ["iam:PassRole"]
     }))
 
+    kendra_retrive_policy_doc = aws_iam.PolicyDocument()
+    kendra_retrive_policy_doc.add_statements(aws_iam.PolicyStatement(**{
+      "effect": aws_iam.Effect.ALLOW,
+      "resources": [f"arn:aws:kendra:{cdk.Aws.REGION}:{cdk.Aws.ACCOUNT_ID}:index/*"],
+      "actions": [
+        "kendra:Retrieve"
+      ]
+    }))
+
     sagemaker_execution_role = aws_iam.Role(self, 'SageMakerExecutionRole',
       role_name='AmazonSageMakerStudioExecutionRole-{suffix}'.format(suffix=''.join(random.choices((string.digits), k=5))),
       assumed_by=aws_iam.ServicePrincipal('sagemaker.amazonaws.com'),
@@ -153,6 +162,7 @@ class SageMakerStudioStack(Stack):
         'sagemaker-execution-policy': sagemaker_execution_policy_doc,
         'sagemaker-custom-access-policy': sagemaker_custom_access_policy_doc,
         'sagemaker-docker-build-policy': sagemaker_docker_build_policy_doc,
+        'kendra-retrive-policy': kendra_retrive_policy_doc
       },
       managed_policies=[
         aws_iam.ManagedPolicy.from_aws_managed_policy_name('AmazonSageMakerFullAccess'),
