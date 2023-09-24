@@ -128,7 +128,7 @@ RAGwithKendraLLMEndpointStack
 (.venv) $ cdk deploy --require-approval never RAGwithKendraLLMEndpointStack
 ```
 
-> :warning: Launching the Amazon Kendra stacks (i.e., **Step 2, 3**) requires about 30 minutes followed by about 15 minutes to synchronize it and ingest the data in the index. Therefore, wait for about 45 minutes after launching the stacks. Note the index ID on the stack’s **Outputs** tab.
+> :warning: Launching the Amazon Kendra stacks (i.e., **Step 2, 3**) requires about 30 minutes followed by about 15 minutes to synchronize it and ingest the data in the index. Therefore, wait for about 45 minutes after launching the stacks. Note the index ID on the `RAGwithKendraIndexStack`’s **Outputs** tab.
 
 **Once all CDK stacks have been successfully created, proceed with the remaining steps of the [overall workflow](../README.md#overall-workflow).**
 
