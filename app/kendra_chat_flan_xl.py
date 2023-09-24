@@ -1,3 +1,9 @@
+# Copyright 2016 Amazon Web Services, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0 License
+#
+# https://github.com/aws-samples/amazon-kendra-langchain-extensions/blob/main/kendra_retriever_samples/kendra_chat_flan_xl.py
+#
+
 import sys
 import json
 import os
