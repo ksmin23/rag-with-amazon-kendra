@@ -41,7 +41,6 @@ def lambda_handler(event, context):
     except Exception as ex:
       status = cfnresponse.FAILED
 
-  if request_type == 'Create': pass
   if request_type == 'Update': pass
   if request_type == 'Delete': pass
 
